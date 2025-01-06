@@ -8,7 +8,7 @@ import { myAppConfig } from '../../my-app-config'
 export class UsersService {
   private readonly http: HttpClient = inject(HttpClient)
 
-  loadUser(uid: number): Observable<IUser> {
-    return this.http.get<IUser>(`https://dummyjson.com/users/${uid}?delay=${myAppConfig.delay}`)
+  loadUser(id: number): Observable<IUser> {
+    return this.http.get<IUser>(`https://dummyjson.com/users/${id}?delay=${myAppConfig.delay}`)
   }
 }
