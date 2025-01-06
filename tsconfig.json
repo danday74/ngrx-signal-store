@@ -23,8 +23,11 @@
       "@data/*": ["src/app/data/*"],
       "@interfaces/*": ["src/app/interfaces/*"],
       "@layouts/*": ["src/app/layouts/*"],
+      "@pipes/*": ["src/app/pipes/*"],
       "@routes/*": ["src/app/routes/*"],
-      "@stores/*": ["src/app/stores/*"]
+      "@services/*": ["src/app/services/*"],
+      "@stores/*": ["src/app/stores/*"],
+      "@ttypes/*": ["src/app/ttypes/*"]
     }
   },
   "angularCompilerOptions": {
