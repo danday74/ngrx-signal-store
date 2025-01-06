@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -21,7 +22,8 @@
     "paths": {
       "@interfaces/*": ["src/app/interfaces/*"],
       "@layouts/*": ["src/app/layouts/*"],
-      "@routes/*": ["src/app/routes/*"]
+      "@routes/*": ["src/app/routes/*"],
+      "@stores/*": ["src/app/stores/*"]
     }
   },
   "angularCompilerOptions": {

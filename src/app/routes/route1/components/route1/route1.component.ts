@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
+import { UsersStore } from '@stores/users.store'
 
 @Component({
   selector: 'app-route1',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core'
   templateUrl: './route1.component.html',
   styleUrl: './route1.component.scss',
 })
-export class Route1Component {}
+export class Route1Component {
+  readonly usersStore = inject(UsersStore)
+}
