@@ -1,0 +1,22 @@
+@use 'styles/colors';
+
+header {
+  background-color: colors.$appBlue;
+  width: 100%;
+  padding: 20px;
+
+  &.real {
+    position: fixed;
+  }
+
+  a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #ddd;
+
+    &.active {
+      text-decoration: underline;
+      color: #fff;
+    }
+  }
+}

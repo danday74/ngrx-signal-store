@@ -1,0 +1,7 @@
+@for (header of ['real', 'fake']; track header) {
+  <header [class]="header">
+    @for (link of ['route1', 'route2']; track link) {
+      <a [routerLink]="'/' + link" routerLinkActive="active">{{ link }}</a>
+    }
+  </header>
+}
