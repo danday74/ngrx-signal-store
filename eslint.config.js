@@ -33,7 +33,7 @@ module.exports = tseslint.config(
           style: 'kebab-case',
         },
       ],
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   {
@@ -44,6 +44,8 @@ module.exports = tseslint.config(
     ],
     rules: {
       '@angular-eslint/template/alt-text': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
+      '@angular-eslint/template/click-events-have-key-events': 'off',
     },
   }
 )
