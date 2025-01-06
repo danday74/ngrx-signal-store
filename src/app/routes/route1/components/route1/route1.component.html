@@ -1,1 +1,24 @@
-<div>{{ usersStore.users().length }}</div>
+<!--suppress TypeScriptUnresolvedReference -->
+<div class="route1">
+  @if (usersStore.length()) {
+    <div class="users-grid">
+
+      <!-- head row -->
+      @for (prop of ['id', 'firstName', 'lastName']; track prop) {
+        <div class="head" (click)="orderBy(prop)">
+          <span class="text">{{ prop | case: 'lower' }}</span>
+          @if (usersStore.sort().prop === prop) {
+            <span class="material-symbols-rounded arrow" [class.rotate]="usersStore.sort().dir === 'desc'">keyboard_arrow_down</span>
+          }
+        </div>
+      }
+
+      <!-- data rows -->
+      @for (user of usersStore.users(); track user.id) {
+        <div [class.active]="usersStore.user().id === user.id" (click)="activate(user.id)">{{ user.id }}</div>
+        <div [class.active]="usersStore.user().id === user.id" (click)="activate(user.id)">{{ user.firstName }}</div>
+        <div [class.active]="usersStore.user().id === user.id" (click)="activate(user.id)">{{ user.lastName }}</div>
+      }
+    </div>
+  }
+</div>
