@@ -9,7 +9,6 @@
 
     & > div {
       padding: 10px;
-      background-color: #333;
       border: 1px solid #222;
       cursor: pointer;
 
@@ -33,9 +32,14 @@
         }
       }
 
-      &.active {
-        background-color: color.adjust(colors.$appBlue, $lightness: -10%);
-        color: darkorange;
+      &:not(.head) {
+        background-color: #333;
+        color: #888;
+
+        &.active {
+          background-color: color.adjust(colors.$appBlue, $lightness: -10%);
+          color: darkorange;
+        }
       }
     }
 
