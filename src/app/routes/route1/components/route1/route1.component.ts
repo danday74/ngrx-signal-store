@@ -17,7 +17,7 @@ export class Route1Component {
     this.usersStore.orderBy(prop as TSortProp)
   }
 
-  activate(id: number) {
+  setActiveUser(id: number) {
     this.usersStore.setActiveUser(id)
   }
 }
