@@ -41,7 +41,7 @@ export const UsersStore = signalStore(
   })),
   withMethods((store, usersService = inject(UsersService)) => ({
     setActiveUser(id: number) {
-      patchState(store, { id })
+      if (id != null) patchState(store, { id })
     },
     orderBy(prop: TSortProp) {
       if (store.sort().prop === prop) {
