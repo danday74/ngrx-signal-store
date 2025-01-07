@@ -17,7 +17,7 @@ export class Route1Component {
 
   readonly usersStore = inject(UsersStore)
 
-  private id: Signal<number> = computed<number>((): number => parseInt(this.paramId(), 10))
+  private id: Signal<number> = computed<number>((): number => parseInt(this.paramId(), 10) || null)
 
   private router: Router = inject(Router)
 
