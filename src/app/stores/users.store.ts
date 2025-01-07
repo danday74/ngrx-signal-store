@@ -44,7 +44,8 @@ export const UsersStore = signalStore(
       if (id != null) patchState(store, { id })
     },
     orderBy(prop: TSortProp) {
-      if (store.sort().prop === prop) {
+      // store.sort().prop or store.sort.prop() is OK
+      if (store.sort.prop() === prop) {
         patchState(store, (state) => ({ sort: { prop, dir: state.sort.dir === 'asc' ? 'desc' : 'asc' as TSortDir } }))
       } else {
         patchState(store, { sort: { prop, dir: 'asc' as TSortDir } })
