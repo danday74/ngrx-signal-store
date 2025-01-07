@@ -1,0 +1,149 @@
+@use 'styles/colors';
+@use 'sass:color';
+
+$eyeRadius: 8;
+$eyePosition: 11;
+$pupilSize: 4;
+$pupilPosition: 4;
+$userBgColor: color.adjust(colors.$appBlue, $lightness: -10%);
+
+.no-user {
+  margin-top: 20px;
+  font-size: 26px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: $userBgColor;
+
+  .loading {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.user {
+  margin-top: 20px;
+  background-color: $userBgColor;
+  border-radius: 5px;
+  padding: 20px 30px 30px;
+
+  .username-wrapper {
+    display: flex;
+    align-items: center;
+
+    .avatar-wrapper {
+      position: relative;
+      height: 64px;
+      width: 64px;
+
+      img.avatar {
+        object-fit: contain;
+      }
+    }
+
+    .username {
+      color: #fff;
+      font-size: 26px;
+      margin-left: 15px;
+      font-style: italic;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 300px;
+    grid-gap: 12px;
+    margin-top: 20px;
+  }
+
+  .label, .value {
+    padding: 10px;
+    text-align: center;
+  }
+
+  $labelValueBorderRadius: 5;
+
+  .label {
+    background-color: #111;
+    color: #888;
+    border-radius: $labelValueBorderRadius * 1px $labelValueBorderRadius * 1px 0 0;
+    border-bottom: 1px solid #333;
+
+    .uom {
+      font-style: italic;
+    }
+  }
+
+  .value {
+    background-color: #222;
+    border-radius: 0 0 $labelValueBorderRadius * 1px $labelValueBorderRadius * 1px;
+  }
+
+  .photo-wrapper {
+    grid-row: span 2;
+    position: relative;
+    height: 100%;
+
+    img.photo {
+      object-fit: contain;
+    }
+
+    .eye {
+      width: $eyeRadius * 2px;
+      height: $eyeRadius * 2px;
+      border-radius: 90px;
+      position: absolute;
+      top: 50px;
+      border: 2px solid #000;
+
+      .eye-pupil {
+        width: $pupilSize * 1px;
+        height: $pupilSize * 1px;
+        border-radius: 90px;
+        background-color: black;
+        position: relative;
+        top: $pupilPosition * 1px;
+        left: $pupilPosition * 1px;
+        animation: lookAround 50s infinite;
+      }
+    }
+
+    .eye-left {
+      left: calc(50% - $eyeRadius * 1px - $eyePosition * 1px);
+    }
+
+    .eye-right {
+      left: calc(50% - $eyeRadius * 1px + $eyePosition * 1px);
+    }
+  }
+}
+
+@keyframes lookAround {
+  30% {
+    left: $pupilPosition * 1px;
+  }
+  31% {
+    left: 0;
+  }
+  39% {
+    left: 0;
+  }
+  40% {
+    left: $pupilPosition * 1px;
+  }
+
+  60% {
+    left: $pupilPosition * 1px;
+  }
+  61% {
+    left: $pupilPosition * 2px;
+  }
+  69% {
+    left: $pupilPosition * 2px;
+  }
+  70% {
+    left: $pupilPosition * 1px;
+  }
+}

@@ -1,0 +1,66 @@
+@if (!user()) {
+  <div class="no-user">
+    <div>select a user</div>
+  </div>
+} @else {
+  <div class="user">
+
+    <!-- username -->
+    <div class="username-wrapper">
+      <div class="avatar-wrapper">
+        <img class="avatar" [ngSrc]="user().image" fill>
+      </div>
+      <div class="username">{{ user().firstName }} {{ user().lastName }}, {{ user().birthDate | age }}</div>
+    </div>
+
+    <!-- grid -->
+    <div class="grid">
+
+      <!-- item -->
+      <div>
+        <div class="label">height <span class="uom">cm</span></div>
+        <div class="value">{{ user().height | number: '1.0-0' }}</div>
+      </div>
+
+      <!-- item -->
+      <div>
+        <div class="label">weight <span class="uom">kg</span></div>
+        <div class="value">{{ user().weight | number: '1.0-0' }}</div>
+      </div>
+
+      <!-- photo -->
+      <div class="photo-wrapper">
+        @if (user().gender === 'male') {
+          <img class="photo" ngSrc="male.orig.png" fill priority>
+        } @else {
+          <img class="photo" ngSrc="female.orig.png" fill priority>
+        }
+        <div class="eye eye-left" [style.background-color]="user().eyeColor | eyeColor">
+          <div class="eye-pupil">&nbsp;</div>
+        </div>
+        <div class="eye eye-right" [style.background-color]="user().eyeColor | eyeColor">
+          <div class="eye-pupil">&nbsp;</div>
+        </div>
+      </div>
+
+      <!-- item -->
+      <div>
+        <div class="label">eye color</div>
+        <div class="value">
+          @let eyeColor = (user().eyeColor | lowercase);
+          @let altEyeColor = (user().eyeColor | eyeColor);
+          <span>{{ eyeColor }}</span>
+          @if (eyeColor !== altEyeColor) {
+            <span>&nbsp;({{ altEyeColor }})</span>
+          }
+        </div>
+      </div>
+
+      <!-- item -->
+      <div>
+        <div class="label">job</div>
+        <div class="value">{{ user().company.title | lowercase }}</div>
+      </div>
+    </div>
+  </div>
+}
