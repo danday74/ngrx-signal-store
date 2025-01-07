@@ -14,6 +14,7 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      'arrow-parens': ['error', 'always'],
       'comma-dangle': ['error', 'always-multiline'],
       'quotes': ['error', 'single', { avoidEscape: true }],
       'semi': ['error', 'never'],
