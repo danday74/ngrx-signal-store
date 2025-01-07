@@ -8,7 +8,7 @@
     <!-- username -->
     <div class="username-wrapper">
       <div class="avatar-wrapper">
-        <img class="avatar" [ngSrc]="user().image" height="64" width="64">
+        <img class="avatar" [ngSrc]="user().image" fill>
       </div>
       <div class="username">{{ user().firstName }} {{ user().lastName }}, {{ user().birthDate | age }}</div>
     </div>
@@ -31,9 +31,9 @@
       <!-- photo -->
       <div class="photo-wrapper">
         @if (user().gender === 'male') {
-          <img class="photo" ngSrc="male.orig.png" fill priority>
+          <img class="photo" ngSrc="male.orig.png" fill>
         } @else {
-          <img class="photo" ngSrc="female.orig.png" fill priority>
+          <img class="photo" ngSrc="female.orig.png" fill>
         }
         <div class="eye eye-left" [style.background-color]="user().eyeColor | eyeColor">
           <div class="eye-pupil">&nbsp;</div>
